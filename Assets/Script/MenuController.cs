@@ -21,7 +21,7 @@ private Button _noBtn;
         _noBtn.onClick.AddListener(CloseGameCancel);
     }
 
-    private void StartGame() {
+    private void StartGame(){
         Debug.Log("game started");
     }
     private void CloseGamePop(){
@@ -30,7 +30,7 @@ private Button _noBtn;
     private void CloseGameCancel(){
         _exitGameConfirmUI.SetActive(false);
     }
-    private void ExitGame(){
+    public void ExitGame(){
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false; // 在编辑器模式下停止播放
         #else
