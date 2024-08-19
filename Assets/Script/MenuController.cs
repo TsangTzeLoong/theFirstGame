@@ -23,7 +23,8 @@ private Button _noBtn;
     }
 
     private void StartGame(){
-        SceneManager.LoadSceneAsync(1);
+        //SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadScene("MainScene");
         Debug.Log("game started");
     }
     private void CloseGamePop(){

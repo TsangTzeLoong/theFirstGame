@@ -34,11 +34,11 @@ public class FightLogic : MonoBehaviour{
     private void AttackBtnOnClick(){
         if(characterAttributes.wallet > 0){
             characterAttributes.wallet -= 1;
-            enmyAttributes.health -= 10;
+            enmyAttributes.Health -= 10;
             enmyAttributes.sobriety -= 10;
         }
         else {
-            characterAttributes.health -= 10; // 没钱时 攻击自己
+            characterAttributes.Health -= 10; // 没钱时 攻击自己
             Debug.Log("NO MONEY!!!");
         }
     }
@@ -72,7 +72,7 @@ public class FightLogic : MonoBehaviour{
         Debug.Log("Round End");
     }
     void EnmyAction(){
-        characterAttributes.health -= 10;
+        characterAttributes.Health -= 10;
         Debug.Log("Attack From Enmy!!!");
     }
     void RoundEndAutoHeal(){
@@ -83,7 +83,7 @@ public class FightLogic : MonoBehaviour{
         SobrietyMonitor();
     }
     void HealthMonitor(){
-        if(enmyAttributes.health <= 0 || characterAttributes.health <= 0){
+        if(enmyAttributes.Health <= 0 || characterAttributes.Health <= 0){
             Debug.Log("game over!");
             QuitBtnOnClick();
         }
@@ -95,8 +95,9 @@ public class FightLogic : MonoBehaviour{
     }
     void QuitBtnOnClick(){
         string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.UnloadSceneAsync(1);
-        Debug.Log(currentScene);
+        SceneManager.UnloadSceneAsync(currentScene);
+        Debug.Log($"Unloading Current Scene: {currentScene}");
+        //SceneManager.UnloadSceneAsync(1);
         SceneManager.LoadSceneAsync(0);
     }
     private void OnDestroy() {

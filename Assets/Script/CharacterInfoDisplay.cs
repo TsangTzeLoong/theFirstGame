@@ -15,7 +15,7 @@ public class CharacterInfoDisplay : MonoBehaviour {
         DisplayCharacterInfo();
     }
     private void DisplayCharacterInfo(){
-        characterInfoTxt.text = $"Name: {characterAttributes.characterName}\nLevel: {characterAttributes.level}\nHealth: {characterAttributes.health}\nWallet: {characterAttributes.wallet}\nSobriety:{characterAttributes.sobriety}";
+        characterInfoTxt.text = $"Name: {characterAttributes.characterName}\nHealth: {characterAttributes.Health}\nWallet: {characterAttributes.wallet}\nSobriety:{characterAttributes.sobriety}\nBeerFlowerCount: {characterAttributes.beerFlowerCounts}";
 
     }
 }
