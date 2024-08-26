@@ -4,11 +4,14 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewCharacterAttributes", menuName = "Character/Attributes")]
 public class CharacterAttributes : Skill{
-    //[SerializeField]
-    public string characterName;
+    [SerializeField]
+    private string characterName;
     [SerializeField]
     private int level = 1;
     private int health;
+    /// <summary>
+    /// 用Health访问器来处理生命值属性，保证生命值字段privat
+    /// </summary>
     public int Health{
         get{return health;}
         set{health = value;}
@@ -19,13 +22,17 @@ public class CharacterAttributes : Skill{
     /// */
     public float sobriety = 100; // 清醒程度 //起到速度的作用 
     public float wakeUpSpeed = 10; // 醒酒速度 // 影响恢复清醒的速度
-    //[SerializeField]
-    public int attack;
+    [SerializeField]
+    private int attack;
+    public int Attack{
+        get{return attack;}
+        set{attack = value;}
+    }
     public int beerFlowerCounts = TouchMonitor.pointCount;
     //public Skill _skill;
     private void Awake(){
         Health = level * 100;
-        attack = 10 + beerFlowerCounts*10;
+        Attack = 10 + beerFlowerCounts*10;
     }
 }
 public class Skill: ScriptableObject{
