@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5891563705373632784}
   - component: {fileID: 5891563705373632785}
   - component: {fileID: 5891563705373632798}
+  - component: {fileID: 474407324279997046}
   m_Layer: 5
   m_Name: Btn_test
   m_TagString: Untagged
@@ -35,11 +36,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 61}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 20, y: -20}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &5891563705373632784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &474407324279997046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891563705373632796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d1d7556e8884db199b043dd62bd657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testBtn: {fileID: 5891563705373632798}
 --- !u!1 &5891563706523804100
 GameObject:
   m_ObjectHideFlags: 0

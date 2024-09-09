@@ -2,40 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewCharacterAttributes", menuName = "Character/Attributes")]
-public class CharacterAttributes : Skill{
+//[CreateAssetMenu(fileName = "NewCharacterAttributes", menuName = "Character/Attributes")]
+[System.Serializable]
+public class CharacterAttributes{
     [SerializeField]
     private string characterName;
+    public int level = 1;
     [SerializeField]
-    private int level = 1;
     private int health;
-    /// <summary>
-    /// 用Health访问器来处理生命值属性，保证生命值字段privat
-    /// </summary>
     public int Health{
         get{return health;}
         set{health = value;}
     }
-    public float wallet = 5; // 金钱 // 起到蓝量的作用
+    /// <summary>
+    /// 暂定两种基础货币 金币和酒花
+    /// </summary>
+    [SerializeField]
+    private int coin;
+    public int Coin{
+        get{return coin;}
+        set{coin = value;}
+    }
+    [SerializeField]
+    private int beerFlower;
+    public int BeerFlower{
+        get{return beerFlower;}
+        set{beerFlower = value;}
+    }
     ///  /* 
     /// 清醒程度每回合开始前回复一次，回复量基于醒酒速度，不同角色的回复量不同；被攻击后与生命值一起消耗；
     /// */
-    public float sobriety = 100; // 清醒程度 //起到速度的作用 
+    [SerializeField] 
+    private int sobriety = 100; // 清醒程度 //起到速度的作用 
+    public int Sobriety{
+        get{return sobriety;}
+        set{sobriety = value;}
+    }
     public float wakeUpSpeed = 10; // 醒酒速度 // 影响恢复清醒的速度
     [SerializeField]
-    private int attack;
-    public int Attack{
-        get{return attack;}
-        set{attack = value;}
+    private int attackPower;
+    public int AttackPower{
+        get{return attackPower;}
+        set{attackPower = value;}
     }
-    public int beerFlowerCounts = TouchMonitor.pointCount;
-    //public Skill _skill;
-    private void Awake(){
-        Health = level * 100;
-        Attack = 10 + beerFlowerCounts*10;
+    public void UpdateAttributes(){
+        beerFlower = TouchMonitor.pointCount;
+        Health = level * 100 + beerFlower;
     }
-}
-public class Skill: ScriptableObject{
-    public int att;
-    public int abcc{get; set;}
+    public void LevelUp(){
+        level++;
+        Debug.Log($"Current Level: {level}!");
+    }
 }

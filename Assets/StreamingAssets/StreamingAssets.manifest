@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3183492028
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: characterprofile
+      Dependencies: {}
