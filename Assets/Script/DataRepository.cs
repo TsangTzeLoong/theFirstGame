@@ -7,7 +7,6 @@ public class DataRepository : MonoBehaviour{
     public static DataRepository Instance{
         get{
             if(instance == null){
-                Debug.Log($"{instance} is not okay yet");
                 GameObject go = new GameObject("DataRepository");
                 instance = go.AddComponent<DataRepository>();
                 DontDestroyOnLoad(go);

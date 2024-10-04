@@ -8,6 +8,10 @@ public class CharacterAttributes{
     [SerializeField]
     private string characterName;
     public int level = 1;
+    private Inventory inventory;
+    public CharacterAttributes(){
+        inventory = new Inventory();
+    }
     [SerializeField]
     private int health;
     public int Health{

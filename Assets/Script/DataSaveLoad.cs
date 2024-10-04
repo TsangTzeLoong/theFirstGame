@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.CloudSave;
 using UnityEngine;
 using System.IO;
 
@@ -13,20 +14,20 @@ private CharacterAttributes characterAttributes;
         // 继承的话用这个方法
         //characterAttributes = gameObject.AddComponent<CharacterAttributes>();
 
-        // string bundlePath = Path.Combine(Application.streamingAssetsPath, "characterprofile");
-        // loadedAssetBundle = AssetBundle.LoadFromFile(bundlePath);
-        // Debug.Log(bundlePath);
-        // if (loadedAssetBundle == null){
-        //     Debug.LogError("Failed to load AssetBundle!");
-        //     return;
-        // }
+        string bundlePath = Path.Combine(Application.streamingAssetsPath, "ui_profiledisplay");
+        loadedAssetBundle = AssetBundle.LoadFromFile(bundlePath);
+        Debug.Log(bundlePath);
+        if (loadedAssetBundle == null){
+            Debug.LogError("Failed to load AssetBundle!");
+            return;
+        }
 
-        // // 假设你要加载一个Prefab
-        // LoadAssetFromBundle("CharacterProfile");
+        // 假设你要加载一个Prefab
+        LoadAssetFromBundle("ui_profiledisplay");
     }
     public void LoadAssetFromBundle(string assetName){
         // 从Asset Bundle中加载指定资源
-        GameObject prefab = loadedAssetBundle.LoadAsset<GameObject>("CharacterProfile");
+        GameObject prefab = loadedAssetBundle.LoadAsset<GameObject>("ui_profiledisplay");
         if (prefab != null){
             // 实例化资源，将其挂载到当前场景中
             Instantiate(prefab);
