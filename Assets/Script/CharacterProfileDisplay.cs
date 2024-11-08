@@ -21,13 +21,14 @@ public class CharacterProfileDisplay : MonoBehaviour{
     void Start(){
         dataRepository = DataRepository.Instance;
         inventory = new Inventory();
-        updateBtn.onClick.AddListener(Plus);
+        updateBtn.onClick.AddListener(Init);
         Init();
         //ProfileInfoUpdate();
     }
     void Plus(){
         inventory.AddItem(ItemType.Potion, 1);
         inventory.PrintInventory();
+        Init();
     }
     void Init(){
         characterLevel = dataRepository.CharacterAttributes.level;

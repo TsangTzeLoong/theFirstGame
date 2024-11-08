@@ -8,9 +8,11 @@ public class DataSaveLoad: MonoBehaviour{
 private AssetBundle loadedAssetBundle;
 private DataRepository dataRepository;
 private CharacterAttributes characterAttributes;
+private Inventory inventory;
     void Start(){
         // 不继承monobehaviour的话用这个方法
         characterAttributes = new CharacterAttributes();
+        inventory = new Inventory();
         // 继承的话用这个方法
         //characterAttributes = gameObject.AddComponent<CharacterAttributes>();
 
@@ -41,6 +43,11 @@ private CharacterAttributes characterAttributes;
         string json = JsonUtility.ToJson(characterAttributes);
         File.WriteAllText(path, json);
         Debug.Log($"Data saved to {path}");
+    }
+    public void SaveInventory(Inventory inventory){
+        string path = Application.persistentDataPath + "/inventoryData.json";
+        string json = JsonUtility.ToJson(inventory);
+        File.WriteAllText(path, json);
     }
     public void LoadData(){
         string path = Application.persistentDataPath + "/characterAttributes.json";

@@ -18,12 +18,19 @@ public class DataRepository : MonoBehaviour{
     private CharacterAttributes characterAttributes;
     public CharacterAttributes CharacterAttributes{
         get{return characterAttributes;}
-        set{characterAttributes= value;}
+        set{characterAttributes = value;}
+    }
+    [SerializeField]
+    private Inventory inventory;
+    public Inventory Inventory{
+        get{return inventory;}
+        set{inventory = value;}
     }
     void Awake(){
         if (characterAttributes == null){
             characterAttributes = new CharacterAttributes();
             Debug.Log($"{characterAttributes} been new");
         }
+        inventory = new Inventory();
     }
 }

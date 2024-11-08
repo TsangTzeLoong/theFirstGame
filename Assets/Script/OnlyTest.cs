@@ -11,20 +11,22 @@ public class OnlyTest: MonoBehaviour{
 private Button testBtn;
 private DataSaveLoad dataSaveLoad;
 private DataRepository dataRepository;
+private Inventory inventory;
 private CloudSaveManager cloudSaveManager;
     void Start(){
         dataRepository = DataRepository.Instance;
         dataSaveLoad = gameObject.AddComponent<DataSaveLoad>();
 
         // 挂载一个云存储的go 初始化
-        cloudSaveManager = gameObject.AddComponent<CloudSaveManager>();
+        //cloudSaveManager = gameObject.AddComponent<CloudSaveManager>();
 
         testBtn.onClick.AddListener(Test);
     }
     private void Test(){
         //dataRepository.CharacterAttributes.LevelUp();
-        //dataSaveLoad.SaveData(dataRepository.CharacterAttributes);
-        cloudSaveManager.SaveDataToCloud(dataRepository.CharacterAttributes);
+        dataSaveLoad.SaveData(dataRepository.CharacterAttributes);
+        dataSaveLoad.SaveInventory(dataRepository.Inventory);
+        //cloudSaveManager.SaveDataToCloud(dataRepository.CharacterAttributes);
 
         //dataSaveLoad.LoadData();
     }

@@ -12,7 +12,7 @@ public class CharacterAttributes{
     public CharacterAttributes(){
         inventory = new Inventory();
     }
-    [SerializeField]
+    //[SerializeField]
     private int health;
     public int Health{
         get{return health;}
@@ -21,7 +21,7 @@ public class CharacterAttributes{
     /// <summary>
     /// 暂定两种基础货币 金币和酒花
     /// </summary>
-    [SerializeField]
+    //[SerializeField]
     private int coin;
     public int Coin{
         get{return coin;}
@@ -32,6 +32,11 @@ public class CharacterAttributes{
     public int BeerFlower{
         get{return beerFlower;}
         set{beerFlower = value;}
+    }
+    private int beer;
+    public int Beer{
+        get{return beer;}
+        set{beer = value;}
     }
     ///  /* 
     /// 清醒程度每回合开始前回复一次，回复量基于醒酒速度，不同角色的回复量不同；被攻击后与生命值一起消耗；

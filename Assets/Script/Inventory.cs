@@ -57,4 +57,5 @@ public class Inventory{
             Debug.Log($"Item: {item.Key}, Quantity: {item.Value.quantity}");
         }
     }
+    
 }
